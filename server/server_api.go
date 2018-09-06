@@ -41,6 +41,10 @@ func (s *Server) api(r *http.Request) error {
 			return fmt.Errorf("Invalid remote torrent URL: %s (%s)", err, tUrl.String())
 		}
 
+		if remote.StatusCode != 200 {
+			return fmt.Errorf("Invalid response requesting torrent URL: %s (%s)", remote.Status, url)
+		}
+
 		//TODO enforce max body size (32k?)
 		data, err = ioutil.ReadAll(remote.Body)
 		if err != nil {
