@@ -48,6 +48,7 @@ func (e *Engine) Configure(c Config) error {
 		ListenAddr: "0.0.0.0:" + strconv.Itoa(c.IncomingPort),
 		NoUpload:   !c.EnableUpload,
 		Seed:       c.EnableSeeding,
+		HTTPUserAgent:"Transmission/2.77",
 	}
 	tc.DisableEncryption = c.DisableEncryption
 
