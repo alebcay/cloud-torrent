@@ -19,7 +19,6 @@ func main() {
 	o := opts.New(&s)
 	o.Version(VERSION)
 	o.PkgRepo()
-	o.LineWidth = 96
 	o.Parse()
 
 	if err := s.Run(VERSION); err != nil {
