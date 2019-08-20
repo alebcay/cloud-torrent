@@ -183,6 +183,8 @@ func (s *Server) Run(version string) error {
 		Addr: addr,
 		//handler stack
 		Handler: h,
+		ReadTimeout: 5 * time.Second,
+		WriteTimeout: 10 * time.Second,
 	}
 	if isTLS {
 		return server.ListenAndServeTLS(s.CertPath, s.KeyPath)
